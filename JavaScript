@@ -1,0 +1,76 @@
+#!/usr/bin/env node
+/* Unit Converter — Node.js */
+
+const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+function ask(question) {
+    return new Promise(resolve => rl.question(question, resolve));
+}
+
+async function length() {
+    console.log("\nLength conversions:");
+    console.log("1. meters → feet");
+    console.log("2. feet → meters");
+    console.log("3. kilometers → miles");
+    console.log("4. miles → kilometers");
+    const choice = await ask("Choose (1-4): ");
+    const val = parseFloat(await ask("Value: "));
+    switch(choice) {
+        case '1': console.log(`${val} m = ${(val * 3.28084).toFixed(2)} ft`); break;
+        case '2': console.log(`${val} ft = ${(val / 3.28084).toFixed(2)} m`); break;
+        case '3': console.log(`${val} km = ${(val * 0.621371).toFixed(2)} mi`); break;
+        case '4': console.log(`${val} mi = ${(val / 0.621371).toFixed(2)} km`); break;
+        default: console.log("Invalid choice");
+    }
+}
+
+async function weight() {
+    console.log("\nWeight conversions:");
+    console.log("1. kilograms → pounds");
+    console.log("2. pounds → kilograms");
+    console.log("3. grams → ounces");
+    console.log("4. ounces → grams");
+    const choice = await ask("Choose (1-4): ");
+    const val = parseFloat(await ask("Value: "));
+    switch(choice) {
+        case '1': console.log(`${val} kg = ${(val * 2.20462).toFixed(2)} lb`); break;
+        case '2': console.log(`${val} lb = ${(val / 2.20462).toFixed(2)} kg`); break;
+        case '3': console.log(`${val} g = ${(val * 0.035274).toFixed(2)} oz`); break;
+        case '4': console.log(`${val} oz = ${(val / 0.035274).toFixed(2)} g`); break;
+        default: console.log("Invalid choice");
+    }
+}
+
+async function temperature() {
+    console.log("\nTemperature conversions:");
+    console.log("1. Celsius → Fahrenheit");
+    console.log("2. Fahrenheit → Celsius");
+    console.log("3. Celsius → Kelvin");
+    console.log("4. Kelvin → Celsius");
+    const choice = await ask("Choose (1-4): ");
+    const val = parseFloat(await ask("Value: "));
+    switch(choice) {
+        case '1': console.log(`${val}°C = ${(val * 9/5 + 32).toFixed(2)}°F`); break;
+        case '2': console.log(`${val}°F = ${((val - 32) * 5/9).toFixed(2)}°C`); break;
+        case '3': console.log(`${val}°C = ${(val + 273.15).toFixed(2)} K`); break;
+        case '4': console.log(`${val} K = ${(val - 273.15).toFixed(2)}°C`); break;
+        default: console.log("Invalid choice");
+    }
+}
+
+async function main() {
+    console.log("=== UNIT CONVERTER ===");
+    console.log("Categories: length, weight, temp");
+    const cat = (await ask("Choose category: ")).toLowerCase();
+    if (cat === 'length') await length();
+    else if (cat === 'weight') await weight();
+    else if (cat === 'temp') await temperature();
+    else console.log("Unknown category");
+    rl.close();
+}
+
+main();
