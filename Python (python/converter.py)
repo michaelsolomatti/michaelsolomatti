@@ -1,0 +1,75 @@
+#!/usr/bin/env python3
+"""Unit Converter — length, weight, temperature"""
+
+def length():
+    print("\nLength conversions:")
+    print("1. meters → feet")
+    print("2. feet → meters")
+    print("3. kilometers → miles")
+    print("4. miles → kilometers")
+    choice = input("Choose (1-4): ")
+    val = float(input("Value: "))
+    if choice == '1':
+        print(f"{val} m = {val * 3.28084:.2f} ft")
+    elif choice == '2':
+        print(f"{val} ft = {val / 3.28084:.2f} m")
+    elif choice == '3':
+        print(f"{val} km = {val * 0.621371:.2f} mi")
+    elif choice == '4':
+        print(f"{val} mi = {val / 0.621371:.2f} km")
+    else:
+        print("Invalid choice")
+
+def weight():
+    print("\nWeight conversions:")
+    print("1. kilograms → pounds")
+    print("2. pounds → kilograms")
+    print("3. grams → ounces")
+    print("4. ounces → grams")
+    choice = input("Choose (1-4): ")
+    val = float(input("Value: "))
+    if choice == '1':
+        print(f"{val} kg = {val * 2.20462:.2f} lb")
+    elif choice == '2':
+        print(f"{val} lb = {val / 2.20462:.2f} kg")
+    elif choice == '3':
+        print(f"{val} g = {val * 0.035274:.2f} oz")
+    elif choice == '4':
+        print(f"{val} oz = {val / 0.035274:.2f} g")
+    else:
+        print("Invalid choice")
+
+def temperature():
+    print("\nTemperature conversions:")
+    print("1. Celsius → Fahrenheit")
+    print("2. Fahrenheit → Celsius")
+    print("3. Celsius → Kelvin")
+    print("4. Kelvin → Celsius")
+    choice = input("Choose (1-4): ")
+    val = float(input("Value: "))
+    if choice == '1':
+        print(f"{val}°C = {val * 9/5 + 32:.2f}°F")
+    elif choice == '2':
+        print(f"{val}°F = {(val - 32) * 5/9:.2f}°C")
+    elif choice == '3':
+        print(f"{val}°C = {val + 273.15:.2f} K")
+    elif choice == '4':
+        print(f"{val} K = {val - 273.15:.2f}°C")
+    else:
+        print("Invalid choice")
+
+def main():
+    print("=== UNIT CONVERTER ===")
+    print("Categories: length, weight, temp")
+    cat = input("Choose category: ").lower()
+    if cat == 'length':
+        length()
+    elif cat == 'weight':
+        weight()
+    elif cat == 'temp':
+        temperature()
+    else:
+        print("Unknown category")
+
+if __name__ == "__main__":
+    main()
