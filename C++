@@ -1,0 +1,91 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <cstdlib>
+
+using namespace std;
+
+void length() {
+    cout << "\nLength conversions:\n";
+    cout << "1. meters → feet\n";
+    cout << "2. feet → meters\n";
+    cout << "3. kilometers → miles\n";
+    cout << "4. miles → kilometers\n";
+    string choice;
+    double val;
+    cout << "Choose (1-4): ";
+    cin >> choice;
+    cout << "Value: ";
+    cin >> val;
+    if (choice == "1")
+        cout << val << " m = " << val * 3.28084 << " ft\n";
+    else if (choice == "2")
+        cout << val << " ft = " << val / 3.28084 << " m\n";
+    else if (choice == "3")
+        cout << val << " km = " << val * 0.621371 << " mi\n";
+    else if (choice == "4")
+        cout << val << " mi = " << val / 0.621371 << " km\n";
+    else
+        cout << "Invalid choice\n";
+}
+
+void weight() {
+    cout << "\nWeight conversions:\n";
+    cout << "1. kilograms → pounds\n";
+    cout << "2. pounds → kilograms\n";
+    cout << "3. grams → ounces\n";
+    cout << "4. ounces → grams\n";
+    string choice;
+    double val;
+    cout << "Choose (1-4): ";
+    cin >> choice;
+    cout << "Value: ";
+    cin >> val;
+    if (choice == "1")
+        cout << val << " kg = " << val * 2.20462 << " lb\n";
+    else if (choice == "2")
+        cout << val << " lb = " << val / 2.20462 << " kg\n";
+    else if (choice == "3")
+        cout << val << " g = " << val * 0.035274 << " oz\n";
+    else if (choice == "4")
+        cout << val << " oz = " << val / 0.035274 << " g\n";
+    else
+        cout << "Invalid choice\n";
+}
+
+void temperature() {
+    cout << "\nTemperature conversions:\n";
+    cout << "1. Celsius → Fahrenheit\n";
+    cout << "2. Fahrenheit → Celsius\n";
+    cout << "3. Celsius → Kelvin\n";
+    cout << "4. Kelvin → Celsius\n";
+    string choice;
+    double val;
+    cout << "Choose (1-4): ";
+    cin >> choice;
+    cout << "Value: ";
+    cin >> val;
+    if (choice == "1")
+        cout << val << "°C = " << val * 9/5 + 32 << "°F\n";
+    else if (choice == "2")
+        cout << val << "°F = " << (val - 32) * 5/9 << "°C\n";
+    else if (choice == "3")
+        cout << val << "°C = " << val + 273.15 << " K\n";
+    else if (choice == "4")
+        cout << val << " K = " << val - 273.15 << "°C\n";
+    else
+        cout << "Invalid choice\n";
+}
+
+int main() {
+    cout << "=== UNIT CONVERTER ===\n";
+    cout << "Categories: length, weight, temp\n";
+    string cat;
+    cout << "Choose category: ";
+    cin >> cat;
+    if (cat == "length") length();
+    else if (cat == "weight") weight();
+    else if (cat == "temp") temperature();
+    else cout << "Unknown category\n";
+    return 0;
+}
